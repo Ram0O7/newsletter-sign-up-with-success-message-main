@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success!</title>
+
+    <style>
+        :root {
+            /* Colors */
+            /* Primary */
+
+            --Tomato: hsl(4, 100%, 67%);
+            /* Neutral */
+            --Dark-Slate-Grey: hsl(234, 29%, 20%);
+            --Charcoal-Grey: hsl(235, 18%, 26%);
+            --Grey: hsl(231, 7%, 60%);
+            --White: hsl(0, 0%, 100%);
+        }
+
+        @font-face {
+            font-family: 'MyRoboto';
+            src: URL('./assets/fonts/Roboto-Regular.ttf') format('truetype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'MyRoboto';
+        }
+
+        body {
+            background-color: var(--Charcoal-Grey);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        label {
+            font-size: 14px;
+            color: var(--Dark-Slate-Grey);
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--Dark-Slate-Grey);
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 350px;
+            padding: 20px 40px;
+            gap: 20px;
+            background-color: var(--White);
+            border-radius: 35px;
+        }
+
+        main section button {
+            height: 50px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background-color: var(--Dark-Slate-Grey);
+            padding: 5px 10px;
+            border: none;
+            color: var(--White);
+            font-weight: bold;
+        }
+
+        .message-content{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        @media only screen and (max-width: 480px) {
+            body {
+                background-color: var(--White);
+            }
+
+            .message-content{
+                gap: 20px;
+            }
+
+            section {
+                width: unset;
+                height: 95vh;
+                padding: 80px 20px;
+                justify-content: space-between;
+                padding-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section>
+            <div class="message-content">
+                <div class=".success-img"><img src="./assets/images/icon-success.svg" alt="success"></div>
+                <h1>Thanks for subscribing!</h1>
+                <p>A confirmation email has been sent to <b id="email">ash@loremcompany.com</b>.
+                    Please open it and click the button inside to confirm your subscription.
+                </p>
+                <script>
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const data = urlParams.get('email');
+                    const email = document.getElementById('email');
+                    email.innerHTML = data;
+                </script>
+            </div>
+            <button onclick="history.back()">Dismiss message</button>
+        </section>
+    </main>
+</body>
+
+</html>

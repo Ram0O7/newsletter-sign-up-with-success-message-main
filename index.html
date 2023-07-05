@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <style>
+    :root {
+      /* Colors */
+      /* Primary */
+
+      --Tomato: hsl(4, 100%, 67%);
+      /* Neutral */
+      --Dark-Slate-Grey: hsl(234, 29%, 20%);
+      --Charcoal-Grey: hsl(235, 18%, 26%);
+      --Grey: hsl(231, 7%, 60%);
+      --White: hsl(0, 0%, 100%);
+    }
+
+    @font-face {
+      font-family: 'MyRoboto';
+      src: URL('./assets/fonts/Roboto-Regular.ttf') format('truetype');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'MyRoboto';
+    }
+
+    body {
+      background-color: var(--Charcoal-Grey);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    label {
+      font-size: 14px;
+      color: var(--Dark-Slate-Grey);
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--Dark-Slate-Grey);
+    }
+
+    section {
+      display: flex;
+      padding: 20px;
+      background-color: var(--White);
+      border-radius: 35px;
+    }
+
+    .content {
+      width: 500px;
+      padding: 100px 50px;
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content div ul {
+      list-style: none;
+    }
+
+    .content div ul li {
+      padding-left: 25px;
+      line-height: 1.5rem;
+      position: relative;
+    }
+
+    .content div ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 4px;
+      width: 15px;
+      height: 15px;
+      background-color: var(--Tomato);
+      border-radius: 50%;
+    }
+
+    .content div ul li::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 8px;
+      width: 6px;
+      height: 3px;
+      border-left: 2px solid var(--White);
+      border-bottom: 2px solid var(--White);
+      transform: rotate(-45deg);
+    }
+
+    .content div,
+    .content form {
+      display: inherit;
+      flex-direction: inherit;
+      color: var(--Charcoal-Grey);
+      position: relative;
+    }
+
+    .content .content-detail {
+      gap: 20px;
+    }
+
+    .content form input,
+    .content form button {
+      height: 50px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid var(--Charcoal-Grey);
+      padding: 5px 10px;
+      outline: none;
+    }
+
+    .content form input:focus:invalid {
+      border: 2px solid red;
+      background-color: rgba(255, 165, 165, 0.250);
+      color: red;
+    }
+    .content form input:focus:invalid::placeholder{
+      color: red;
+    }
+
+    .content form input:focus:invalid+span::before {
+      content: "valid email required";
+      color: red;
+      position: absolute;
+      top: 8px;
+      right: 0;
+      font-size: 12px;
+    }
+
+    .content form input:focus:valid {
+      border: 2px solid green;
+      background-color: rgba(165, 255, 165, 0.250);
+      color: green;
+    }
+
+    .content form button {
+      border: none;
+      background-color: var(--Dark-Slate-Grey);
+      font-size: 16px;
+      color: var(--White);
+      font-weight: 700;
+    }
+
+    .content form button:active,
+    .content form button:hover {
+      background-color: var(--Tomato);
+    }
+
+    .content-img img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width:480px) {
+      body {
+        align-items: flex-start;
+        background-color: var(--White);
+      }
+
+      section {
+        flex-direction: column-reverse;
+        border-radius: unset;
+        padding: unset;
+      }
+
+      .content {
+        width: unset;
+        padding: 25px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section>
+      <div class="content">
+        <div class="content-detail">
+          <h1>Stay updated!</h1>
+          <p>Join 60,000+ product managers receiving monthly updates on:</p>
+          <ul>
+            <li class="checked">Product discovery and building what matters</li>
+            <li class="checked">Measuring to ensure updates are a success</li>
+            <li class="checked">And much more</li>
+          </ul>
+        </div>
+        <form action="success.html" method="GET" autocomplete="off">
+          <div>
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="email@comnpany.com" required>
+            <span></span>
+          </div>
+          <button type="submit">Subscribe to monthly newsletter</button>
+        </form>
+      </div>
+      <div class="content-img">
+        <picture>
+          <source srcset="./assets/images/illustration-sign-up-desktop.svg" media="(min-width: 568px)">
+          <source srcset="./assets/images/illustration-sign-up-mobile.svg" media="(max-width: 568px)">
+          <img src="./assets/images/illustration-sign-up-desktop.svg" alt="illustration-sign-up">
+        </picture>
+      </div>
+    </section>
+  </main>
+
+</body>
+
+</html>
